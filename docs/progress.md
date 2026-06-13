@@ -48,14 +48,28 @@
 - 已通过发版前校验脚本，包括 Release 模拟器构建
 - 已生成真实运行 App 首屏截图：`screenshots/app-store/01-explore.png`
 - 已用浏览器验证 GitHub Pages 三语隐私/支持页面可加载
+- 已创建 GitHub 仓库并推送：`https://github.com/Davidzyj/dish-passport`
+- 已启用 GitHub Pages workflow 发布
+- GitHub Pages 线上环境：`https://davidzyj.github.io/dish-passport/`
+- 已确认最新 GitHub Pages deployment 状态为 success
+- 已生成完整 App Store 截图组：
+  - `screenshots/app-store/01-explore.png`
+  - `screenshots/app-store/02-dish-detail.png`
+  - `screenshots/app-store/03-cuisines.png`
+  - `screenshots/app-store/04-saved.png`
+  - `screenshots/app-store/05-phrases.png`
+  - `screenshots/app-store/06-settings.png`
+- 已创建截图接触表：`screenshots/app-store/contact-sheet.png`
+- 已更新 handoff 文档到最终交付状态
 
 ## 当前阶段
 
-创建 GitHub 仓库并配置 Pages，然后做最终审计。
+已完成开发与上架准备，剩余事项主要是 Apple Developer / App Store Connect 后台手动处理。
 
 ## 待办阶段
 
-1. 创建并推送 GitHub 仓库
-2. 在 GitHub Pages 首次部署完成后确认线上 URL
-3. 按真实用户路径进行更完整的模拟器交互验证
-4. 最后生成完整 App Store 截图组
+1. 在 Apple Developer / App Store Connect 创建或确认 App 记录
+2. 在 Xcode 选择 Apple Developer Team 并 Archive
+3. 上传 build `1.0.0 (1)`
+4. 在 App Store Connect 填写价格、地区、年龄分级、隐私问卷和联系人信息
+5. 上传截图与图标并提交审核
