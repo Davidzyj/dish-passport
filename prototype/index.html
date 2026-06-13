@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dish Passport UX Prototype</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">iPhone App UX 设计稿</p>
+        <h1>Dish Passport · 味游中国</h1>
+        <p class="intro">面向美国用户的中国菜单与饮食文化指南。首屏立即搜索，功能形成“查找 - 理解 - 保存 - 回访”的闭环。</p>
+      </div>
+      <div class="brand-mark" aria-hidden="true">
+        <span>味</span>
+      </div>
+    </header>
+
+    <main class="canvas">
+      <section class="flow-note">
+        <h2>核心体验路径</h2>
+        <div class="path-grid">
+          <article>
+            <strong>1. 搜一道菜</strong>
+            <span>输入英文、拼音或中文，实时筛选。</span>
+          </article>
+          <article>
+            <strong>2. 看懂怎么点</strong>
+            <span>辣度、食材、地区、点餐短语一次给清楚。</span>
+          </article>
+          <article>
+            <strong>3. 保存状态</strong>
+            <span>收藏、想尝试、喜欢均本地保存。</span>
+          </article>
+          <article>
+            <strong>4. 回到收藏</strong>
+            <span>返回后有反馈，重启后状态仍存在。</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="phones" aria-label="App screens">
+        <article class="phone">
+          <div class="device">
+            <div class="status-bar">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+            <div class="screen home-screen">
+              <div class="top-row">
+                <div>
+                  <p class="micro">Good evening</p>
+                  <h2>Dish Passport</h2>
+                </div>
+                <button class="icon-btn" aria-label="Settings">⚙</button>
+              </div>
+
+              <div class="search-box">
+                <span aria-hidden="true">⌕</span>
+                <span>Search “mapo”, “dumpling”, “麻婆”</span>
+              </div>
+
+              <div class="hero-card">
+                <div>
+                  <p class="micro light">今晚推荐</p>
+                  <h3>Mapo Tofu</h3>
+                  <p>麻、辣、豆香，很适合第一次理解川菜层次。</p>
+                </div>
+                <div class="dish-bowl" aria-hidden="true">
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="section-head">
+                <h3>Popular dishes</h3>
+                <button>See all</button>
+              </div>
+
+              <div class="dish-list">
+                <div class="dish-row active">
+                  <div class="dish-thumb red">麻</div>
+                  <div>
+                    <strong>Mapo Tofu</strong>
+                    <span>麻婆豆腐 · Sichuan · Hot</span>
+                  </div>
+                  <em>Saved</em>
+                </div>
+                <div class="dish-row">
+                  <div class="dish-thumb green">饺</div>
+                  <div>
+                    <strong>Pork Dumplings</strong>
+                    <span>猪肉饺子 · Northern · Mild</span>
+                  </div>
+                  <button class="plus">＋</button>
+                </div>
+                <div class="dish-row">
+                  <div class="dish-thumb gold">茶</div>
+                  <div>
+                    <strong>Tea Eggs</strong>
+                    <span>茶叶蛋 · Snack · Savory</span>
+                  </div>
+                  <button class="plus">＋</button>
+                </div>
+              </div>
+
+              <nav class="tabbar">
+                <a class="selected">⌕<span>Explore</span></a>
+                <a>▦<span>Cuisines</span></a>
+                <a>♡<span>Saved</span></a>
+                <a>☰<span>Settings</span></a>
+              </nav>
+            </div>
+          </div>
+          <h3>首页 / 探索</h3>
+          <p>首屏直接给搜索、推荐菜和最近状态。用户不需要先理解 App 才能开始点菜。</p>
+        </article>
+
+        <article class="phone">
+          <div class="device">
+            <div class="status-bar">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+            <div class="screen">
+              <div class="nav-row">
+                <button class="back">‹</button>
+                <h2>Search</h2>
+                <button class="text-btn">Cancel</button>
+              </div>
+
+              <div class="search-box typed">
+                <span aria-hidden="true">⌕</span>
+                <strong>mapo</strong>
+              </div>
+
+              <p class="result-count">3 results · offline</p>
+
+              <div class="result-card primary">
+                <div class="dish-thumb red large">麻</div>
+                <div class="result-copy">
+                  <h3>Mapo Tofu</h3>
+                  <p>麻婆豆腐 · ma po dou fu</p>
+                  <div class="tags">
+                    <span>Hot</span>
+                    <span>Sichuan</span>
+                    <span>Tofu</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="result-card">
+                <div class="dish-thumb gold large">辣</div>
+                <div class="result-copy">
+                  <h3>Spicy Hot Pot</h3>
+                  <p>麻辣火锅 · ma la huo guo</p>
+                  <div class="tags">
+                    <span>Very hot</span>
+                    <span>Chongqing</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tip-strip">
+                <strong>点餐小提示</strong>
+                <span>可以说 “Less spicy, please.”</span>
+              </div>
+            </div>
+          </div>
+          <h3>搜索结果</h3>
+          <p>支持英文、拼音、中文关键字；搜索结果可进入详情，且显示离线可用。</p>
+        </article>
+
+        <article class="phone">
+          <div class="device">
+            <div class="status-bar">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+            <div class="screen detail-screen">
+              <div class="nav-row over-photo">
+                <button class="back light-btn">‹</button>
+                <button class="icon-btn light-btn">♡</button>
+              </div>
+
+              <div class="detail-visual">
+                <div class="plate" aria-hidden="true">
+                  <span class="tofu one"></span>
+                  <span class="tofu two"></span>
+                  <span class="pepper"></span>
+                  <span class="scallion"></span>
+                </div>
+              </div>
+
+              <div class="detail-panel">
+                <div class="title-row">
+                  <div>
+                    <p class="micro">Sichuan · 川菜</p>
+                    <h2>Mapo Tofu</h2>
+                    <span>麻婆豆腐 · má pó dòu fu</span>
+                  </div>
+                  <button class="save-btn saved">Saved</button>
+                </div>
+
+                <div class="meter-row">
+                  <div>
+                    <strong>辣度</strong>
+                    <span>中高</span>
+                  </div>
+                  <div>
+                    <strong>适合</strong>
+                    <span>配米饭</span>
+                  </div>
+                  <div>
+                    <strong>口味</strong>
+                    <span>麻辣鲜香</span>
+                  </div>
+                </div>
+
+                <section class="content-block">
+                  <h3>How to order</h3>
+                  <p>“Mapo tofu, less spicy please.”</p>
+                  <button class="copy-btn">Copy phrase</button>
+                </section>
+
+                <section class="content-block culture">
+                  <h3>Culture note</h3>
+                  <p>这道菜的重点不只是辣，而是花椒带来的“麻”。美国用户能通过它理解川菜的层次。</p>
+                </section>
+              </div>
+            </div>
+          </div>
+          <h3>菜品详情</h3>
+          <p>详情页提供可点菜的英文句子和文化解释。收藏按钮有明确已保存状态。</p>
+        </article>
+
+        <article class="phone">
+          <div class="device">
+            <div class="status-bar">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+            <div class="screen">
+              <div class="top-row compact">
+                <div>
+                  <p class="micro">Regional guide</p>
+                  <h2>Cuisines</h2>
+                </div>
+              </div>
+
+              <div class="cuisine-feature">
+                <p class="micro">Start here</p>
+                <h3>Sichuan</h3>
+                <p>Bold heat, numbing peppercorns, layered sauces.</p>
+                <button>Explore 18 dishes</button>
+              </div>
+
+              <div class="cuisine-grid">
+                <div class="cuisine-tile red-tile">
+                  <strong>川菜</strong>
+                  <span>Sichuan</span>
+                </div>
+                <div class="cuisine-tile green-tile">
+                  <strong>粤菜</strong>
+                  <span>Cantonese</span>
+                </div>
+                <div class="cuisine-tile gold-tile">
+                  <strong>江南</strong>
+                  <span>Jiangnan</span>
+                </div>
+                <div class="cuisine-tile ink-tile">
+                  <strong>北方</strong>
+                  <span>Northern</span>
+                </div>
+              </div>
+
+              <div class="section-head">
+                <h3>Ordering style</h3>
+              </div>
+              <div class="phrase-card">
+                <strong>Less spicy, please.</strong>
+                <span>请少辣一点 · qing shao la yi dian</span>
+              </div>
+
+              <nav class="tabbar">
+                <a>⌕<span>Explore</span></a>
+                <a class="selected">▦<span>Cuisines</span></a>
+                <a>♡<span>Saved</span></a>
+                <a>☰<span>Settings</span></a>
+              </nav>
+            </div>
+          </div>
+          <h3>菜系</h3>
+          <p>不是空分类入口；每个菜系都有口味说明、代表菜和点餐建议。</p>
+        </article>
+
+        <article class="phone">
+          <div class="device">
+            <div class="status-bar">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+            <div class="screen">
+              <div class="top-row compact">
+                <div>
+                  <p class="micro">Your list</p>
+                  <h2>Saved</h2>
+                </div>
+                <button class="filter-chip">Try list</button>
+              </div>
+
+              <div class="summary-band">
+                <div>
+                  <strong>8</strong>
+                  <span>Saved</span>
+                </div>
+                <div>
+                  <strong>5</strong>
+                  <span>Want to try</span>
+                </div>
+                <div>
+                  <strong>3</strong>
+                  <span>Liked</span>
+                </div>
+              </div>
+
+              <div class="section-head">
+                <h3>Want to try</h3>
+                <button>Edit</button>
+              </div>
+              <div class="dish-list">
+                <div class="dish-row active">
+                  <div class="dish-thumb red">麻</div>
+                  <div>
+                    <strong>Mapo Tofu</strong>
+                    <span>Saved from search · just now</span>
+                  </div>
+                  <em>✓</em>
+                </div>
+                <div class="dish-row">
+                  <div class="dish-thumb gold">包</div>
+                  <div>
+                    <strong>Soup Dumplings</strong>
+                    <span>Jiangnan · Try with vinegar</span>
+                  </div>
+                  <em>✓</em>
+                </div>
+              </div>
+
+              <div class="feedback-toast">Mapo Tofu saved to Try List</div>
+
+              <nav class="tabbar">
+                <a>⌕<span>Explore</span></a>
+                <a>▦<span>Cuisines</span></a>
+                <a class="selected">♡<span>Saved</span></a>
+                <a>☰<span>Settings</span></a>
+              </nav>
+            </div>
+          </div>
+          <h3>收藏</h3>
+          <p>保存之后返回收藏页能看到状态反馈，且分组展示想尝试、已喜欢和最近浏览。</p>
+        </article>
+
+        <article class="phone">
+          <div class="device">
+            <div class="status-bar">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+            <div class="screen settings-screen">
+              <div class="top-row compact">
+                <div>
+                  <p class="micro">Local first</p>
+                  <h2>Settings</h2>
+                </div>
+              </div>
+
+              <div class="settings-card">
+                <button class="setting-row">
+                  <span>Language</span>
+                  <strong>English ›</strong>
+                </button>
+                <button class="setting-row">
+                  <span>Privacy Policy</span>
+                  <strong>Open ›</strong>
+                </button>
+                <button class="setting-row">
+                  <span>Support</span>
+                  <strong>jay212315@gmail.com ›</strong>
+                </button>
+              </div>
+
+              <div class="settings-card">
+                <button class="setting-row">
+                  <span>Reset saved dishes</span>
+                  <strong class="danger">Reset</strong>
+                </button>
+                <div class="setting-row static">
+                  <span>Version</span>
+                  <strong>1.0.0</strong>
+                </div>
+              </div>
+
+              <div class="privacy-note">
+                <strong>No account. No tracking.</strong>
+                <span>All saved dishes stay on this iPhone unless you open support links yourself.</span>
+              </div>
+
+              <nav class="tabbar">
+                <a>⌕<span>Explore</span></a>
+                <a>▦<span>Cuisines</span></a>
+                <a>♡<span>Saved</span></a>
+                <a class="selected">☰<span>Settings</span></a>
+              </nav>
+            </div>
+          </div>
+          <h3>设置</h3>
+          <p>提供语言、隐私政策、支持入口和本地数据管理。不向用户展示 Bundle ID。</p>
+        </article>
+      </section>
+
+      <section class="acceptance">
+        <h2>后续实现验收重点</h2>
+        <div class="checklist">
+          <div><span>✓</span> 搜索、收藏、想尝试、复制短语都有真实动作</div>
+          <div><span>✓</span> 用户状态本地保存，返回后和重启后可见</div>
+          <div><span>✓</span> 三语本地化和 Display Name 完整</div>
+          <div><span>✓</span> 强制浅色主题，浅底文字显式深色</div>
+          <div><span>✓</span> 截图假数据只由启动参数启用，Release 不启用</div>
+          <div><span>✓</span> 隐私政策和支持网页通过 GitHub Pages 三语发布</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
