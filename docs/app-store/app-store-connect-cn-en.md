@@ -40,13 +40,13 @@ Keywords:
 Chinese food,menu,restaurant,dim sum,Sichuan,dumplings,noodles,pinyin,travel,offline
 
 Support URL:
-`https://zhouyajie.github.io/dish-passport/support/`
+`https://davidzyj.github.io/dish-passport/support/`
 
 Privacy Policy URL:
-`https://zhouyajie.github.io/dish-passport/privacy/`
+`https://davidzyj.github.io/dish-passport/privacy/`
 
 Marketing URL:
-Optional. Use `https://zhouyajie.github.io/dish-passport/` if Apple requires one.
+Optional. Use `https://davidzyj.github.io/dish-passport/` if Apple requires one.
 
 ## 简体中文 Listing
 
@@ -72,13 +72,13 @@ App 包含实用点餐短语，以及川菜、粤菜、江南、北方、湘菜�
 中国菜,菜单,餐馆,点心,川菜,饺子,面食,拼音,旅行,离线
 
 支持 URL：
-`https://zhouyajie.github.io/dish-passport/support/zh-Hans/`
+`https://davidzyj.github.io/dish-passport/support/zh-Hans/`
 
 隐私政策 URL：
-`https://zhouyajie.github.io/dish-passport/privacy/zh-Hans/`
+`https://davidzyj.github.io/dish-passport/privacy/zh-Hans/`
 
 营销 URL：
-可选。如需填写，使用 `https://zhouyajie.github.io/dish-passport/`。
+可选。如需填写，使用 `https://davidzyj.github.io/dish-passport/`。
 
 ## Japanese Listing
 
@@ -104,10 +104,10 @@ Keywords:
 中国料理,メニュー,レストラン,点心,四川,餃子,麺,ピンイン,旅行,オフライン
 
 Support URL:
-`https://zhouyajie.github.io/dish-passport/support/ja/`
+`https://davidzyj.github.io/dish-passport/support/ja/`
 
 Privacy Policy URL:
-`https://zhouyajie.github.io/dish-passport/privacy/ja/`
+`https://davidzyj.github.io/dish-passport/privacy/ja/`
 
 ## App Privacy Answers
 

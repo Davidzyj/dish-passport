@@ -88,8 +88,8 @@ enum LocalizedText {
             "toast.cuisineAlreadyAdded": "%@ dishes are already in Try List",
             "toast.languageChanged": "Language updated",
             "toast.reset": "Saved data reset",
-            "link.privacy": "https://zhouyajie.github.io/dish-passport/privacy/",
-            "link.support": "https://zhouyajie.github.io/dish-passport/support/"
+            "link.privacy": "https://davidzyj.github.io/dish-passport/privacy/",
+            "link.support": "https://davidzyj.github.io/dish-passport/support/"
         ],
         .simplifiedChinese: [
             "tab.explore": "探索",
@@ -173,8 +173,8 @@ enum LocalizedText {
             "toast.cuisineAlreadyAdded": "%@ 代表菜已在想尝试中",
             "toast.languageChanged": "语言已更新",
             "toast.reset": "收藏数据已重置",
-            "link.privacy": "https://zhouyajie.github.io/dish-passport/privacy/zh-Hans/",
-            "link.support": "https://zhouyajie.github.io/dish-passport/support/zh-Hans/"
+            "link.privacy": "https://davidzyj.github.io/dish-passport/privacy/zh-Hans/",
+            "link.support": "https://davidzyj.github.io/dish-passport/support/zh-Hans/"
         ],
         .japanese: [
             "tab.explore": "探す",
@@ -258,8 +258,8 @@ enum LocalizedText {
             "toast.cuisineAlreadyAdded": "%@ の代表料理はすでに追加済みです",
             "toast.languageChanged": "言語を更新しました",
             "toast.reset": "保存データをリセットしました",
-            "link.privacy": "https://zhouyajie.github.io/dish-passport/privacy/ja/",
-            "link.support": "https://zhouyajie.github.io/dish-passport/support/ja/"
+            "link.privacy": "https://davidzyj.github.io/dish-passport/privacy/ja/",
+            "link.support": "https://davidzyj.github.io/dish-passport/support/ja/"
         ]
     ]
 }
