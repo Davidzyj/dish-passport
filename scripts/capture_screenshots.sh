@@ -4,9 +4,9 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
-DEVICE_NAME="${DEVICE_NAME:-iPhone 17}"
+DEVICE_NAME="${DEVICE_NAME:-iPhone 17 Pro Max}"
 BUNDLE_ID="com.zhouyajie.dishpassport"
-OUT_DIR="$ROOT/screenshots/app-store"
+OUT_DIR="${OUT_DIR:-$ROOT/screenshots/app-store/iphone-6.9}"
 
 mkdir -p "$OUT_DIR"
 
@@ -47,19 +47,29 @@ capture_screen() {
   local file="$2"
   local expected_bytes=100000
 
+  mkdir -p "$OUT_DIR"
   xcrun simctl terminate "$DEVICE_ID" "$BUNDLE_ID" >/dev/null 2>&1 || true
   xcrun simctl launch "$DEVICE_ID" com.apple.springboard >/dev/null 2>&1 || true
   sleep 1
   xcrun simctl launch "$DEVICE_ID" "$BUNDLE_ID" --screenshot-demo-data --screenshot-screen "$route" >/dev/null
-  sleep 3
-  xcrun simctl io "$DEVICE_ID" screenshot "$OUT_DIR/$file"
+  sleep 4
 
   local bytes
-  bytes="$(wc -c < "$OUT_DIR/$file" | tr -d ' ')"
-  if [[ "$bytes" -lt "$expected_bytes" ]]; then
-    echo "Screenshot looks too small or blank: $file ($bytes bytes)" >&2
-    exit 1
-  fi
+  for attempt in 1 2 3 4 5; do
+    xcrun simctl io "$DEVICE_ID" screenshot "$OUT_DIR/$file" >/dev/null
+    if [[ -f "$OUT_DIR/$file" ]]; then
+      bytes="$(wc -c < "$OUT_DIR/$file" | tr -d ' ')"
+    else
+      bytes=0
+    fi
+    if [[ "$bytes" -ge "$expected_bytes" ]]; then
+      return
+    fi
+    sleep 2
+  done
+
+  echo "Screenshot looks too small or blank: $file ($bytes bytes)" >&2
+  exit 1
 }
 
 capture_screen "explore" "01-explore.png"
