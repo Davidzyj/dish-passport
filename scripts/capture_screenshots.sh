@@ -41,12 +41,37 @@ fi
 xcrun simctl uninstall "$DEVICE_ID" "$BUNDLE_ID" >/dev/null 2>&1 || true
 xcrun simctl install "$DEVICE_ID" "$APP_PATH"
 xcrun simctl ui "$DEVICE_ID" appearance light >/dev/null 2>&1 || true
-xcrun simctl launch "$DEVICE_ID" com.apple.springboard >/dev/null 2>&1 || true
-sleep 1
-xcrun simctl launch "$DEVICE_ID" "$BUNDLE_ID" --screenshot-demo-data
-sleep 2
-xcrun simctl io "$DEVICE_ID" screenshot "$OUT_DIR/01-explore.png"
 
-echo "Captured initial screenshot: $OUT_DIR/01-explore.png"
-echo "For final App Store screenshots, run the app with this script, navigate each target screen in the simulator, then use:"
-echo "xcrun simctl io $DEVICE_ID screenshot $OUT_DIR/<name>.png"
+capture_screen() {
+  local route="$1"
+  local file="$2"
+  local expected_bytes=100000
+
+  xcrun simctl terminate "$DEVICE_ID" "$BUNDLE_ID" >/dev/null 2>&1 || true
+  xcrun simctl launch "$DEVICE_ID" com.apple.springboard >/dev/null 2>&1 || true
+  sleep 1
+  xcrun simctl launch "$DEVICE_ID" "$BUNDLE_ID" --screenshot-demo-data --screenshot-screen "$route" >/dev/null
+  sleep 3
+  xcrun simctl io "$DEVICE_ID" screenshot "$OUT_DIR/$file"
+
+  local bytes
+  bytes="$(wc -c < "$OUT_DIR/$file" | tr -d ' ')"
+  if [[ "$bytes" -lt "$expected_bytes" ]]; then
+    echo "Screenshot looks too small or blank: $file ($bytes bytes)" >&2
+    exit 1
+  fi
+}
+
+capture_screen "explore" "01-explore.png"
+capture_screen "dish-detail" "02-dish-detail.png"
+capture_screen "cuisines" "03-cuisines.png"
+capture_screen "saved" "04-saved.png"
+capture_screen "phrases" "05-phrases.png"
+capture_screen "settings" "06-settings.png"
+
+echo "Captured screenshots:"
+for file in "$OUT_DIR"/[0-9][0-9]-*.png; do
+  width="$(sips -g pixelWidth "$file" 2>/dev/null | awk '/pixelWidth/ {print $2}')"
+  height="$(sips -g pixelHeight "$file" 2>/dev/null | awk '/pixelHeight/ {print $2}')"
+  echo "- $file ${width}x${height}"
+done

@@ -18,6 +18,7 @@ final class AppStore: ObservableObject {
 
         #if DEBUG
         if screenshotMode == .demoData {
+            let route = ScreenshotRoute.current
             self.userState = UserState(
                 savedDishIDs: ["mapo-tofu", "xiaolongbao", "char-siu"],
                 wantToTryDishIDs: ["mapo-tofu", "hunan-fish-head", "har-gow"],
@@ -27,6 +28,16 @@ final class AppStore: ObservableObject {
                 languageCode: .english,
                 hasCompletedWelcome: true
             )
+            switch route {
+            case .cuisines:
+                self.selectedTab = .cuisines
+            case .saved:
+                self.selectedTab = .saved
+            case .settings:
+                self.selectedTab = .settings
+            default:
+                self.selectedTab = .explore
+            }
             return
         }
         #endif

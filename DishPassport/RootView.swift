@@ -46,8 +46,56 @@ struct RootView: View {
             }
         }
         .animation(.easeInOut(duration: 0.2), value: store.toastMessage)
+        #if DEBUG
+        .screenshotRouteOverlay()
+        #endif
     }
 }
+
+#if DEBUG
+private extension View {
+    func screenshotRouteOverlay() -> some View {
+        modifier(ScreenshotRoutePresenter())
+    }
+}
+
+private struct ScreenshotRoutePresenter: ViewModifier {
+    @EnvironmentObject private var store: AppStore
+    @State private var selectedDish: Dish?
+    @State private var selectedPhrase: Phrase?
+
+    func body(content: Content) -> some View {
+        content
+            .fullScreenCover(item: $selectedDish) { dish in
+                NavigationStack {
+                    DishDetailView(dish: dish)
+                        .environmentObject(store)
+                }
+                .preferredColorScheme(.light)
+            }
+            .fullScreenCover(item: $selectedPhrase) { phrase in
+                NavigationStack {
+                    PhraseDetailView(phrase: phrase)
+                        .environmentObject(store)
+                }
+                .preferredColorScheme(.light)
+            }
+            .onAppear {
+                guard store.screenshotMode == .demoData else {
+                    return
+                }
+                switch ScreenshotRoute.current {
+                case .dishDetail:
+                    selectedDish = store.dishesByID["mapo-tofu"]
+                case .phrases:
+                    selectedPhrase = store.content.phrases.first
+                default:
+                    break
+                }
+            }
+    }
+}
+#endif
 
 struct ToastView: View {
     let message: String
@@ -64,4 +112,3 @@ struct ToastView: View {
             .padding(.horizontal, 22)
     }
 }
-

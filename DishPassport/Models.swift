@@ -142,3 +142,39 @@ enum ScreenshotMode {
     }
 }
 
+#if DEBUG
+enum ScreenshotRoute: String {
+    case explore
+    case dishDetail = "dish-detail"
+    case cuisines
+    case saved
+    case phrases
+    case settings
+
+    static var current: ScreenshotRoute? {
+        let arguments = ProcessInfo.processInfo.arguments
+        guard arguments.contains("--screenshot-demo-data") else {
+            return nil
+        }
+        guard let value = argumentValue(named: "--screenshot-screen", in: arguments) else {
+            return .explore
+        }
+        return ScreenshotRoute(rawValue: value) ?? .explore
+    }
+
+    private static func argumentValue(named name: String, in arguments: [String]) -> String? {
+        if let combined = arguments.first(where: { $0.hasPrefix("\(name)=") }) {
+            return String(combined.dropFirst(name.count + 1))
+        }
+
+        guard let index = arguments.firstIndex(of: name) else {
+            return nil
+        }
+        let nextIndex = arguments.index(after: index)
+        guard arguments.indices.contains(nextIndex) else {
+            return nil
+        }
+        return arguments[nextIndex]
+    }
+}
+#endif
